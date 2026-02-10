@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TORVEX | Aegis</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+:root{
+  --bg:#050505;
+  --glass:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.15);
+  --red:#ff2d2d;
+  --text:#eaeaea;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{
+  background:radial-gradient(circle at top,#111,#000 65%);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;width:100%;
+  padding:18px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(18px);
+  background:rgba(0,0,0,0.45);
+  z-index:100;
+}
+nav h1{font-weight:800;letter-spacing:2px;}
+nav button{
+  padding:10px 22px;
+  border-radius:30px;
+  border:1px solid var(--border);
+  background:var(--glass);
+  color:white;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 20px;
+}
+.hero h2{
+  font-size:64px;
+  font-weight:800;
+}
+.hero h2 span{color:var(--red);}
+.hero p{
+  max-width:720px;
+  opacity:.85;
+  margin:22px 0 40px;
+}
+.hero .cta{display:flex;gap:20px;}
+.hero button{
+  padding:14px 36px;
+  border-radius:40px;
+  border:none;
+  font-size:16px;
+  cursor:pointer;
+}
+.primary{background:var(--red);color:white;}
+.secondary{
+  background:transparent;
+  color:white;
+  border:1px solid var(--border);
+}
+
+/* SECTIONS */
+.section{padding:120px 60px;}
+.glass{
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(20px);
+  border-radius:30px;
+  padding:60px;
+  margin-bottom:70px;
+}
+
+/* GRID */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+
+/* STATS */
+.stat{
+  padding:40px;
+  text-align:center;
+  border-radius:24px;
+  background:rgba(255,255,255,0.06);
+}
+.stat h4{font-size:42px;color:var(--red);}
+.stat p{opacity:.8;}
+
+/* PRODUCT */
+.product h3{font-size:42px;}
+.product ul{margin-top:20px;}
+.product li{margin-bottom:12px;opacity:.85;}
+
+/* FOUNDER */
+.founder h3{font-size:40px;margin-bottom:20px;}
+.founder span{color:var(--red);}
+
+/* FIREATHON */
+.fireathon h3{font-size:42px;}
+.badge{
+  display:inline-block;
+  padding:8px 18px;
+  border-radius:20px;
+  background:rgba(255,45,45,.15);
+  color:var(--red);
+  margin-bottom:20px;
+}
+
+/* FOOTER */
+footer{
+  padding:60px;
+  text-align:center;
+  opacity:.6;
+}
+
+/* ANIMATIONS */
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-14px);}
+  100%{transform:translateY(0);}
+}
+.float{animation:float 4s ease-in-out infinite;}
+
+@media(max-width:900px){
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  .hero h2{font-size:44px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>TORVEX</h1>
+  <button onclick="alert('Investor access coming soon')">Investor</button>
+</nav>
+
+<section class="hero">
+  <h2>TORVEX <span>AEGIS</span></h2>
+  <p>
+    A next-generation safety ecosystem built for India.  
+    When seconds matter, TORVEX responds.
+  </p>
+  <div class="cta">
+    <button class="primary">Explore Aegis</button>
+    <button class="secondary">Partner With Us</button>
+  </div>
+</section>
+
+<section class="section">
+
+<!-- ABOUT -->
+<div class="glass grid-2">
+  <div>
+    <h3>Why TORVEX Exists</h3>
+    <p>
+      India faces thousands of emergencies every year — fires, medical crises,
+      thefts — where help arrives too late.
+      <br><br>
+      TORVEX was born to rethink safety using modern gateways,
+      intelligent alerts, and scalable design.
+    </p>
+  </div>
+  <div>
+    <h3>Our Vision</h3>
+    <p>
+      To create affordable, reliable, and deployable safety technology
+      that works everywhere — from cities to villages.
+    </p>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="glass">
+  <h3 style="margin-bottom:30px;">The Problem (Demo Visual Stats)</h3>
+  <div class="grid-3">
+    <div class="stat">
+      <h4>🔥 100K+</h4>
+      <p>Fire incidents per year</p>
+    </div>
+    <div class="stat">
+      <h4>🚑 30%</h4>
+      <p>Medical emergencies delayed</p>
+    </div>
+    <div class="stat">
+      <h4>🔐 40%</h4>
+      <p>Crimes without rapid alerts</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT -->
+<div class="glass grid-2 product">
+  <div>
+    <h3>AEGIS Hand Device</h3>
+    <p>
+      A compact emergency gateway designed to react instantly.
+    </p>
+    <ul>
+      <li>• Multi-threat emergency triggering</li>
+      <li>• Gateway-based communication</li>
+      <li>• Solar-assisted power</li>
+      <li>• Built for Indian conditions</li>
+    </ul>
+  </div>
+  <div class="float">
+    <canvas id="chart"></canvas>
+  </div>
+</div>
+
+<!-- FOUNDER -->
+<div class="glass founder">
+  <h3>Message from the <span>Founder</span></h3>
+  <p>
+    Since childhood, I’ve seen how lack of safety and delayed response
+    costs lives across our country.
+    <br><br>
+    TORVEX started as a simple thought —  
+    *what if technology could react faster than fear?*
+    <br><br>
+    With no big team, no funding, and just belief,
+    TORVEX is my step towards a safer India.
+  </p>
+</div>
+
+<!-- FIREATHON -->
+<div class="glass fireathon">
+  <span class="badge">ONLINE HACKATHON</span>
+  <h3>FIREATHON 🔥</h3>
+  <p>
+    India’s beginner-friendly online hackathon,
+    powered by TORVEX.
+  </p>
+  <br>
+  <p>
+    🗓️ <b>Dates:</b> 1 – 2 May  
+    <br>
+    💻 <b>Mode:</b> Online  
+    <br>
+    🚀 <b>Focus:</b> C++ • Logic • Real-world problem solving
+  </p>
+  <br>
+  <button class="primary">Register Soon</button>
+</div>
+
+</section>
+
+<footer>
+  © 2026 TORVEX · Designed with vision · Built with fire
+</footer>
+
+<script>
+const ctx = document.getElementById('chart');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Phase 1','Phase 2','Phase 3','Phase 4'],
+    datasets: [{
+      label: 'Response Speed Improvement (Demo)',
+      data: [25,50,75,95],
+      borderColor:'#ff2d2d',
+      tension:.4
+    }]
+  },
+  options:{
+    plugins:{legend:{labels:{color:'#fff'}}},
+    scales:{
+      x:{ticks:{color:'#aaa'}},
+      y:{ticks:{color:'#aaa'}}
+    }
+  }
+});
+</script>
+
+</body>
+</html>
