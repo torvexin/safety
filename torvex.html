@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>TORVEX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0""")/>>
+<title>TORVEX | FIREATHON</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net"></script>
 
 <style>
 :root{
@@ -96,24 +96,25 @@ nav button{
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
 
-/* STATS */
-.stat{
-  padding:40px;
-  text-align:center;
-  border-radius:24px;
-  background:rgba(255,255,255,0.06);
+/* FORM STYLING */
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
 }
-.stat h4{font-size:42px;color:var(--red);}
-.stat p{opacity:.8;}
-
-/* PRODUCT */
-.product h3{font-size:42px;}
-.product ul{margin-top:20px;}
-.product li{margin-bottom:12px;opacity:.85;}
-
-/* FOUNDER */
-.founder h3{font-size:40px;margin-bottom:20px;}
-.founder span{color:var(--red);}
+.reg-input, .reg-select {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+}
+.reg-input:focus { border-color: var(--red); outline: none; }
+.full-width { grid-column: span 2; }
+label { font-size: 12px; opacity: 0.7; margin-bottom: 5px; display: block; }
 
 /* FIREATHON */
 .fireathon h3{font-size:42px;}
@@ -126,23 +127,11 @@ nav button{
   margin-bottom:20px;
 }
 
-/* FOOTER */
-footer{
-  padding:60px;
-  text-align:center;
-  opacity:.6;
-}
-
-/* ANIMATIONS */
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-14px);}
-  100%{transform:translateY(0);}
-}
-.float{animation:float 4s ease-in-out infinite;}
+footer{ padding:60px; text-align:center; opacity:.6; }
 
 @media(max-width:900px){
-  .grid-2,.grid-3{grid-template-columns:1fr;}
+  .grid-2,.grid-3, .form-container{grid-template-columns:1fr;}
+  .full-width { grid-column: span 1; }
   .hero h2{font-size:44px;}
 }
 </style>
@@ -157,10 +146,7 @@ footer{
 
 <section class="hero">
   <h2>TORVEX <span></span></h2>
-  <p>
-    A next-generation safety ecosystem built for India.  
-    When seconds matter, TORVEX responds.
-  </p>
+  <p>A next-generation safety ecosystem built for India.</p>
   <div class="cta">
     <button class="primary">Explore Aegis</button>
     <button class="secondary">Partner With Us</button>
@@ -169,129 +155,96 @@ footer{
 
 <section class="section">
 
-<!-- ABOUT -->
-<div class="glass grid-2">
-  <div>
-    <h3>Why TORVEX Exists</h3>
-    <p>
-      India faces thousands of emergencies every year — fires, medical crises,
-      thefts — where help arrives too late.
-      <br><br>
-      TORVEX was born to rethink safety using modern gateways,
-      intelligent alerts, and scalable design.
-    </p>
-  </div>
-  <div>
-    <h3>Our Vision</h3>
-    <p>
-      To create affordable, reliable, and deployable safety technology
-      that works everywhere — from cities to villages.
-    </p>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="glass">
-  <h3 style="margin-bottom:30px;">The Problem (Demo Visual Stats)</h3>
-  <div class="grid-3">
-    <div class="stat">
-      <h4>🔥 100K+</h4>
-      <p>Fire incidents per year</p>
-    </div>
-    <div class="stat">
-      <h4>🚑 30%</h4>
-      <p>Medical emergencies delayed</p>
-    </div>
-    <div class="stat">
-      <h4>🔐 40%</h4>
-      <p>Crimes without rapid alerts</p>
-    </div>
-  </div>
-</div>
-
-<!-- PRODUCT -->
-<div class="glass grid-2 product">
-  <div>
-    <h3>AEGIS Hand Device</h3>
-    <p>
-      A compact emergency gateway designed to react instantly.
-    </p>
-    <ul>
-      <li>• Multi-threat emergency triggering</li>
-      <li>• Gateway-based communication</li>
-      <li>• Solar-assisted power</li>
-      <li>• Built for Indian conditions</li>
-    </ul>
-  </div>
-  <div class="float">
-    <canvas id="chart"></canvas>
-  </div>
-</div>
-
-<!-- FOUNDER -->
-<div class="glass founder">
-  <h3>Message from the <span>Founder</span></h3>
-  <p>
-    Since childhood, I’ve seen how lack of safety and delayed response
-    costs lives across our country.
-    <br><br>
-    TORVEX started as a simple thought —  
-    *what if technology could react faster than fear?*
-    <br><br>
-    With no big team, no funding, and just belief,
-    TORVEX is my step towards a safer India.
-  </p>
-</div>
-
-<!-- FIREATHON -->
+<!-- FIREATHON SECTION -->
 <div class="glass fireathon">
-  <span class="badge">ONLINE HACKATHON</span>
+  <span class="badge">REGISTRATION OPEN</span>
   <h3>FIREATHON 🔥</h3>
-  <p>
-    India’s beginner-friendly online hackathon,
-    powered by TORVEX.
-  </p>
-  <br>
-  <p>
-    🗓️ <b>Dates:</b> 1 – 2 May  
-    <br>
-    💻 <b>Mode:</b> Online  
-    <br>
-    🚀 <b>Focus:</b> C++ • Logic • Real-world problem solving
-  </p>
-  <br>
-  <button class="primary">Register Soon</button>
+  <p>Join the 2-day challenge to solve rural fire safety problems.</p>
+  
+  <div id="regForm">
+    <div class="form-container">
+      <div>
+        <label>Full Name</label>
+        <input type="text" id="name" class="reg-input" placeholder="Enter Name">
+      </div>
+      <div>
+        <label>Phone Number</label>
+        <input type="tel" id="phone" class="reg-input" placeholder="Enter Phone">
+      </div>
+      <div class="full-width">
+        <label>Email Address</label>
+        <input type="email" id="email" class="reg-input" placeholder="Email">
+      </div>
+      <div>
+        <label>Current Class/Year</label>
+        <input type="text" id="class" class="reg-input" placeholder="e.g. 10th or 2nd Year">
+      </div>
+      <div>
+        <label>First Hackathon?</label>
+        <select id="firstTime" class="reg-select">
+          <option value="Yes">Yes, this is my first</option>
+          <option value="No">No, I've done this before</option>
+        </select>
+      </div>
+      <div class="full-width">
+        <label>What coding do you know?</label>
+        <input type="text" id="codingKnowledge" class="reg-input" placeholder="e.g. Python, C++, or None (Non-coder)">
+      </div>
+      <button class="primary full-width" id="submitBtn" onclick="submitData()" style="padding:15px; font-weight:bold;">Complete Registration</button>
+    </div>
+  </div>
 </div>
 
 </section>
 
-<footer>
-  © 2026 TORVEX · Designed with vision · Built with fire
-</footer>
+<footer>© 2026 TORVEX · Built for a safer India</footer>
 
 <script>
-const ctx = document.getElementById('chart');
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Phase 1','Phase 2','Phase 3','Phase 4'],
-    datasets: [{
-      label: 'Response Speed Improvement (Demo)',
-      data: [25,50,75,95],
-      borderColor:'#ff2d2d',
-      tension:.4
-    }]
-  },
-  options:{
-    plugins:{legend:{labels:{color:'#fff'}}},
-    scales:{
-      x:{ticks:{color:'#aaa'}},
-      y:{ticks:{color:'#aaa'}}
+async function submitData() {
+    const btn = document.getElementById('submitBtn');
+    
+    // Collecting all fields
+    const formData = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        class: document.getElementById('class').value,
+        firstTime: document.getElementById('firstTime').value,
+        coding: document.getElementById('codingKnowledge').value
+    };
+
+    // Simple validation
+    if(!formData.name || !formData.email || !formData.phone) {
+        alert("Please fill in Name, Phone, and Email!");
+        return;
     }
-  }
-});
+
+    const url = "https://script.google.com";
+    
+    btn.innerText = "Registering...";
+    btn.disabled = true;
+
+    try {
+        await fetch(url, {
+            method: 'POST',
+            mode: 'no-cors',
+            cache: 'no-cache',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+        
+        document.getElementById('regForm').innerHTML = `
+            <div style="text-align:center; padding:40px;">
+                <h3 style="color:var(--red);">Welcome to FIREATHON! 🚀</h3>
+                <p>Registration successful. We will contact you soon.</p>
+            </div>`;
+    } catch (error) {
+        alert("Something went wrong, but check your Sheet!");
+        btn.innerText = "Complete Registration";
+        btn.disabled = false;
+    }
+}
 </script>
 
 </body>
 </html>
-
