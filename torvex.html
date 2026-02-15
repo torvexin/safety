@@ -1,250 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0""")/>>
-<title>TORVEX | FIREATHON</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TORVEX | Tactical Response</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --accent: #ff3b30;
+            --text: #ffffff;
+            --text-dim: #86868b;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
 
-<link href="https://fonts.googleapis.com" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net"></script>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-<style>
-:root{
-  --bg:#050505;
-  --glass:rgba(255,255,255,0.08);
-  --border:rgba(255,255,255,0.15);
-  --red:#ff2d2d;
-  --text:#eaeaea;
-}
+        /* --- Background Floating Text (The Secret for Glassmorphism) --- */
+        .bg-text {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25vw;
+            font-weight: 900;
+            color: rgba(255, 0, 0, 0.15); /* Faint Red */
+            z-index: -1;
+            user-select: none;
+            white-space: nowrap;
+            letter-spacing: -10px;
+        }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{
-  background:radial-gradient(circle at top,#111,#000 65%);
-  color:var(--text);
-  overflow-x:hidden;
-}
+        /* --- Header --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 25px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0,0,0,0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            z-index: 1000; border-bottom: 1px solid var(--glass-border);
+        }
+        .logo { font-weight: 900; font-size: 1.5rem; color: var(--accent); }
+        .investor-btn {
+            background: var(--accent); color: white; padding: 10px 25px;
+            border-radius: 30px; font-weight: 700; border: none; cursor: pointer;
+            transition: 0.3s; box-shadow: 0 0 20px rgba(255, 59, 48, 0.3);
+        }
 
-/* NAV */
-nav{
-  position:fixed;
-  top:0;width:100%;
-  padding:18px 60px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  backdrop-filter:blur(18px);
-  background:rgba(0,0,0,0.45);
-  z-index:100;
-}
-nav h1{font-weight:800;letter-spacing:2px;}
-nav button{
-  padding:10px 22px;
-  border-radius:30px;
-  border:1px solid var(--border);
-  background:var(--glass);
-  color:white;
-  cursor:pointer;
-}
+        /* --- Hero --- */
+        section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; }
+        .hero { text-align: left; }
+        .hero h1 { font-size: clamp(3rem, 10vw, 7rem); line-height: 0.9; margin-bottom: 20px; font-weight: 900; }
+        .hero p { color: var(--text-dim); font-size: 1.2rem; max-width: 600px; }
 
-/* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:0 20px;
-}
-.hero h2{
-  font-size:64px;
-  font-weight:800;
-}
-.hero h2 span{color:var(--red);}
-.hero p{
-  max-width:720px;
-  opacity:.85;
-  margin:22px 0 40px;
-}
-.hero .cta{display:flex;gap:20px;}
-.hero button{
-  padding:14px 36px;
-  border-radius:40px;
-  border:none;
-  font-size:16px;
-  cursor:pointer;
-}
-.primary{background:var(--red);color:white;}
-.secondary{
-  background:transparent;
-  color:white;
-  border:1px solid var(--border);
-}
+        /* --- GLASS CARDS SECTION --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 60px; }
+        
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(25px) saturate(150%);
+            -webkit-backdrop-filter: blur(25px) saturate(150%);
+            border: 1px solid var(--glass-border);
+            padding: 50px;
+            border-radius: 35px;
+            transition: 0.4s ease;
+        }
+        .glass-card:hover { transform: translateY(-10px); border-color: var(--accent); background: rgba(255, 0, 0, 0.05); }
+        .glass-card h3 { color: var(--accent); font-size: 1.8rem; margin-bottom: 15px; font-weight: 800; }
 
-/* SECTIONS */
-.section{padding:120px 60px;}
-.glass{
-  background:var(--glass);
-  border:1px solid var(--border);
-  backdrop-filter:blur(20px);
-  border-radius:30px;
-  padding:60px;
-  margin-bottom:70px;
-}
+        /* --- Founder Section --- */
+        .founder-box {
+            background: linear-gradient(145deg, rgba(255,0,0,0.1), transparent);
+            border-radius: 40px; padding: 60px; border: 1px solid var(--glass-border);
+        }
 
-/* GRID */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+        /* --- Roadmap --- */
+        .step { margin-bottom: 40px; padding-left: 20px; border-left: 3px solid var(--accent); }
 
-/* FORM STYLING */
-.form-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-top: 20px;
-}
-.reg-input, .reg-select {
-  width: 100%;
-  padding: 12px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: white;
-  font-size: 14px;
-}
-.reg-input:focus { border-color: var(--red); outline: none; }
-.full-width { grid-column: span 2; }
-label { font-size: 12px; opacity: 0.7; margin-bottom: 5px; display: block; }
+        /* --- Investor Modal --- */
+        #investorModal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); backdrop-filter: blur(15px);
+            z-index: 2000; justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background: #111; padding: 40px; border-radius: 30px; border: 1px solid var(--accent);
+            text-align: center; max-width: 400px;
+        }
 
-/* FIREATHON */
-.fireathon h3{font-size:42px;}
-.badge{
-  display:inline-block;
-  padding:8px 18px;
-  border-radius:20px;
-  background:rgba(255,45,45,.15);
-  color:var(--red);
-  margin-bottom:20px;
-}
+        /* --- Reveal Animations --- */
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-footer{ padding:60px; text-align:center; opacity:.6; }
+        footer { text-align: center; padding: 80px 0; border-top: 1px solid var(--glass-border); }
+        footer a { color: var(--text); text-decoration: none; margin: 0 20px; font-weight: 700; font-size: 1.1rem; }
+        footer a:hover { color: var(--accent); }
 
-@media(max-width:900px){
-  .grid-2,.grid-3, .form-container{grid-template-columns:1fr;}
-  .full-width { grid-column: span 1; }
-  .hero h2{font-size:44px;}
-}
-</style>
+        @media (max-width: 768px) { .bg-text { font-size: 40vw; } section { padding: 60px 5%; } }
+    </style>
 </head>
-
 <body>
 
-<nav>
-  <h1>TORVEX</h1>
-  <button onclick="alert('Investor access coming soon')">Investor</button>
-</nav>
+    <!-- Parallax Background Text -->
+    <div class="bg-text" id="parallax-text">TORVEX</div>
 
-<section class="hero">
-  <h2>TORVEX <span></span></h2>
-  <p>A next-generation safety ecosystem built for India.</p>
-  <div class="cta">
-    <button class="primary">Explore Aegis</button>
-    <button class="secondary">Partner With Us</button>
-  </div>
-</section>
+    <nav>
+        <div class="logo">TORVEX</div>
+        <button class="investor-btn" onclick="openModal()">INVESTOR ACCESS</button>
+    </nav>
 
-<section class="section">
+    <section class="hero">
+        <div class="reveal">
+            <h1 style="color: white;">EVERY SECOND<br><span style="color: var(--accent);">MATTERS.</span></h1>
+            <p>Tactical Operations and Response for Vulnerable Extremes. Re-engineering emergency safety logic from the ground up.</p>
+        </div>
+    </section>
 
-<!-- FIREATHON SECTION -->
-<div class="glass fireathon">
-  <span class="badge">REGISTRATION OPEN</span>
-  <h3>FIREATHON 🔥</h3>
-  <p>Join the 2-day challenge to solve rural fire safety problems.</p>
-  
-  <div id="regForm">
-    <div class="form-container">
-      <div>
-        <label>Full Name</label>
-        <input type="text" id="name" class="reg-input" placeholder="Enter Name">
-      </div>
-      <div>
-        <label>Phone Number</label>
-        <input type="tel" id="phone" class="reg-input" placeholder="Enter Phone">
-      </div>
-      <div class="full-width">
-        <label>Email Address</label>
-        <input type="email" id="email" class="reg-input" placeholder="Email">
-      </div>
-      <div>
-        <label>Current Class/Year</label>
-        <input type="text" id="class" class="reg-input" placeholder="e.g. 10th or 2nd Year">
-      </div>
-      <div>
-        <label>First Hackathon?</label>
-        <select id="firstTime" class="reg-select">
-          <option value="Yes">Yes, this is my first</option>
-          <option value="No">No, I've done this before</option>
-        </select>
-      </div>
-      <div class="full-width">
-        <label>What coding do you know?</label>
-        <input type="text" id="codingKnowledge" class="reg-input" placeholder="e.g. Python, C++, or None (Non-coder)">
-      </div>
-      <button class="primary full-width" id="submitBtn" onclick="submitData()" style="padding:15px; font-weight:bold;">Complete Registration</button>
+    <!-- Glassmorphism Section -->
+    <section>
+        <h2 class="reveal" style="font-size: 3rem; margin-bottom: 40px;">The Problem</h2>
+        <div class="grid">
+            <div class="glass-card reveal">
+                <h3>Late Detection</h3>
+                <p>Seconds lost in fire detection cost lives. We solve the reporting lag using real-time architecture.</p>
+            </div>
+            <div class="glass-card reveal">
+                <h3>Signal Fail</h3>
+                <p>Standard networks crash in fire extremes. TORVEX wireless mesh stays active when everything else burns.</p>
+            </div>
+            <div class="glass-card reveal">
+                <h3>Chaos Delay</h3>
+                <p>Human panic creates fatal bottlenecks. Our tactical logic automates the first response instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="founder-box reveal">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">The Founder</h2>
+            <p style="font-size: 1.4rem; line-height: 1.4;">
+                <strong>Tinesh</strong>, a 14 year old concered about <strong>Safety to everyone</strong>. 
+                Started with an Arduino and a vision to bridge the gaps between vulnerablility and safety seen since childhood. 
+                Prototype "Aegis" is currently in field testing.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="reveal" style="font-size: 3rem; margin-bottom: 50px;">Roadmap</h2>
+        <div class="step reveal">
+            <h4 style="color: var(--accent); font-size: 1.5rem;">01. TORVEX Aegis </h4>
+            <p>Prototype testing for real-time alert logic and heat resistance.</p>
+        </div>
+        <div class="step reveal">
+            <h4>02. Field Integration</h4>
+            <p>Piloting units with tactical response teams for data validation.</p>
+        </div>
+        <div class="step reveal">
+            <h4 style="opacity: 0.3;">03. Global Network</h4>
+            <p>Protecting vulnerable extremes with a scalable response grid.</p>
+        </div>
+    </section>
+	
+	<section>
+    <h2 class="reveal" style="font-size: 3rem; margin-bottom: 40px;">TORVEX FIREATHON</h2>
+
+    <div class="glass-card reveal">
+        <h3>Not Just Coders. Thinkers.</h3>
+        <p>
+            TORVEX Fireathon is an open call for bold ideas to solve real emergency problems.
+            We are not only searching for programmers. 
+            We want engineers, designers, students, and problem-solvers who can imagine faster,
+            smarter ways to save lives when seconds matter.
+        </p>
     </div>
-  </div>
-</div>
 
+    <div class="glass-card reveal">
+        <h3>What We’re Looking For</h3>
+        <p>
+            New ideas for early detection, stronger alerts, reliable communication during fires,
+            and systems that work even when networks fail.
+            Hardware ideas, software ideas, safety logic ideas — all are welcome.
+        </p>
+    </div>
+
+    <div class="glass-card reveal">
+        <h3>Join the Mission</h3>
+        <p>
+            If you believe technology should protect people first,
+            send your idea to <strong>torvexco@gmail.com</strong>.
+            Let’s build emergency technology that actually reaches people in time.
+        </p>
+    </div>
 </section>
 
-<footer>© 2026 TORVEX · Built for a safer India</footer>
 
-<script>
-async function submitData() {
-    const btn = document.getElementById('submitBtn');
-    
-    // Collecting all fields
-    const formData = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        class: document.getElementById('class').value,
-        firstTime: document.getElementById('firstTime').value,
-        coding: document.getElementById('codingKnowledge').value
-    };
+    <footer>
+        <div class="reveal">
+            <a href="https://instagram.com" target="_blank">INSTAGRAM</a>
+            <a href="mailto:torvexco@gmail.com">EMAIL</a>
+            <p style="margin-top: 50px; opacity: 0.3; font-size: 0.8rem;">© 2026 TORVEX TACTICAL OPERATIONS</p>
+        </div>
+    </footer>
 
-    // Simple validation
-    if(!formData.name || !formData.email || !formData.phone) {
-        alert("Please fill in Name, Phone, and Email!");
-        return;
-    }
+    <!-- Investor Modal -->
+    <div id="investorModal">
+        <div class="modal-content">
+            <h2 style="color: var(--accent); margin-bottom: 15px;">Investor Portal</h2>
+            <p style="color: #888;">Access coming soon. Currently under tactical review.</p>
+            <button class="investor-btn" style="margin-top: 25px; width: 100%;" onclick="closeModal()">CLOSE</button>
+        </div>
+    </div>
 
-    const url = "https://script.google.com";
-    
-    btn.innerText = "Registering...";
-    btn.disabled = true;
-
-    try {
-        await fetch(url, {
-            method: 'POST',
-            mode: 'no-cors',
-            cache: 'no-cache',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
+    <script>
+        // Parallax Effect for TORVEX Background Text
+        window.addEventListener('scroll', function() {
+            const scrollValue = window.scrollY;
+            const parallaxText = document.getElementById('parallax-text');
+            parallaxText.style.transform = `translate(-50%, calc(-50% + ${scrollValue * 0.1}px))`;
         });
-        
-        document.getElementById('regForm').innerHTML = `
-            <div style="text-align:center; padding:40px;">
-                <h3 style="color:var(--red);">Welcome to FIREATHON! 🚀</h3>
-                <p>Registration successful. We will contact you soon.</p>
-            </div>`;
-    } catch (error) {
-        alert("Something went wrong, but check your Sheet!");
-        btn.innerText = "Complete Registration";
-        btn.disabled = false;
-    }
-}
-</script>
 
+        // Scroll Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Modal Controls
+        function openModal() { document.getElementById('investorModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('investorModal').style.display = 'none'; }
+    </script>
 </body>
 </html>
